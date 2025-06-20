@@ -287,25 +287,25 @@ body {
   padding: 2rem;
   text-align: center;
   animation: fadeInLeft 1s ease;
+  overflow-x: auto;
 }
 
 .menu h2 {
   margin-bottom: 1rem;
   color: var(--brown);
-}
-
-.menu table img {
-  display: block;
-  margin: 0 auto;
+  font-size: 2rem;
 }
 
 .menu table {
   width: 100%;
+  min-width: 500px;
   max-width: 700px;
   margin: auto;
   border-collapse: collapse;
   background-color: white;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  border-radius: 12px;
+  overflow: hidden;
 }
 
 .menu th,
@@ -313,6 +313,7 @@ body {
   border: 1px solid #ccc;
   padding: 1rem;
   text-align: center;
+  font-size: 1rem;
 }
 
 .menu thead {
@@ -324,32 +325,36 @@ body {
   background-color: #f9f9f9;
 }
 
+.menu table img {
+  display: block;
+  margin: 0 auto;
+}
+
+/* Tablet: reducir padding y fuente */
+@media (max-width: 900px) {
+  .menu {
+    padding: 1.2rem 0.5rem;
+  }
+  .menu h2 {
+    font-size: 1.3rem;
+  }
+  .menu th, .menu td {
+    padding: 0.7rem;
+    font-size: 0.95rem;
+  }
+}
+
+/* Móvil: tabla apilada y fuente pequeña */
 @media (max-width: 600px) {
-  .menu table,
-  .menu thead,
-  .menu tbody,
-  .menu th,
-  .menu td,
-  .menu tr {
-    display: block;
+  .menu {
+    padding: 0.5rem 0.1rem;
   }
-
-  .menu thead {
-    display: none;
+  .menu table {
+    min-width: 400px;
+    font-size: 0.95rem;
   }
-
-  .menu td {
-    position: relative;
-    padding-left: 50%;
-    text-align: left;
-  }
-
-  .menu td::before {
-    content: attr(data-label);
-    position: absolute;
-    left: 1rem;
-    font-weight: bold;
-    color: var(--brown);
+  .menu th, .menu td {
+    padding: 0.7rem;
   }
 }
 
